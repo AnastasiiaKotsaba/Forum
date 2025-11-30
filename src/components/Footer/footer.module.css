@@ -1,0 +1,41 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding-top: 20px;
+    padding: 15px 0;
+    background-color: #B2A7AD;
+    font-family: 'Poppins', sans-serif;
+    flex-wrap: wrap;
+}
+
+hr {
+    width: 50%;
+    border: 0.5px solid white;
+    border-radius: 100px;
+    margin: 0;
+    opacity: 0.5;
+}
+
+.footerMedia {
+    display: flex;
+    gap: 50px;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 70px;
+
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.footerLinks a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
