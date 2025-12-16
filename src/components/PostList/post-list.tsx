@@ -1,5 +1,7 @@
+import { use, useEffect, useState } from "react";
 import { PostCard } from "../Post/post";
-import style from "../Post/post.module.css";
+import styles from "../Post/post.module.css";
+import { IPostProps, Post, Tag } from "../Post/types";
 
 const tags = [
     { id: 1, name: "Tigers" }, 
@@ -45,12 +47,44 @@ const posts = [
 ]
 
 
-export function PostList() {
+export function PostList(props: IPostProps) {
+    const [searchValue, setSearchValue] = useState<string>('')
+
+    const [selectedTags, setSelectedTags] = useState<number[]>([])
+
+    const [likesMinimumValue, setlikesMinimumValue] = useState<number>(0) 
+
+    const [filteredTags, setFilteredTags] = useState(tags) 
+    const [filteredPosts, setFilteredPosts] = useState(posts) 
+
+    useEffect(() => {
+        
+    })
+
+
 	return (
-		<div className={style.postListContainer}>
-			{posts.map((post) => {
-				return <PostCard key={post.id} post={post} />
-			})}
+		<div className={styles.postListContainer}>
+            <div className={styles.filteredPosts}>
+                <div className={styles.searchBarBlock}>
+                    <input
+                        type="text"
+                        placeholder="Search posts by their title..."
+                        className={styles.searchBarInput}
+                        onChange={(event) => {
+                            const inputValue = event.target.value
+                            setSearchValue(inputValue)
+                        }}
+                    />  
+                </div>
+            </div>
+
+            <div className={styles.postsBlock}>
+                <div className={styles.posts}>
+                    {posts.map((post) => {
+                        return <PostCard post={post} key={post.id}></PostCard>
+                    })}
+                </div>
+            </div>
 		</div>
 	)
 }

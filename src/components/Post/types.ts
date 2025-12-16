@@ -11,12 +11,13 @@ export interface Post {
     imageDescription: string;
 
     tags: Tag[];
+    likes?: number;
 }
 
 export interface Tag {
     id: number;
     name: string;
-
+    postId: number;
 }
 
 export interface IPostProps {
