@@ -1,12 +1,12 @@
-import { ICONS, IMAGES } from "../../shared";
-import styles from "./post.module.css";
-import { IPostProps } from './post.types'
+import { IMAGES, ICONS } from '../../shared';
+import styles from './one-post-page.module.css';
+import { IPostProps } from "./one-post-page.types"
 
-export function Post(props: IPostProps) {
-	const { post } = props
+export function OnePostPage(props: IPostProps) {
+    const { post } = props
 
-	return (
-		<div className= {styles.postContainer}>
+    return(
+        <div className= {styles.postContainer}>
             <div className={styles.postAuthor}>
                 <img src={IMAGES.UserAvatar} className={styles.authorAvatar} alt="author-avatar"/>
                 <p className={styles.authorName}>User123</p>
@@ -25,5 +25,5 @@ export function Post(props: IPostProps) {
                 <p><ICONS.ViewsButton width={20} height={14}/><span>143.3K</span></p>
             </div>
         </div>
-	);
+    )
 }
