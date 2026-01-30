@@ -1,6 +1,7 @@
 import styles from "./header.module.css"
 import { ReactComponent as Logo } from "../../assets/icons/Logo.svg"
 import { useMediaQuery } from "react-responsive"
+import { Link } from "react-router-dom";
 
 export function Header() {
     const isDesktop = useMediaQuery({ minWidth: 1025 });
@@ -14,10 +15,11 @@ export function Header() {
     
                 <div className={styles.rightHeaderPart}>
                     <div className={styles.links}>
-                        <a href="#" className={`${styles.link} ${styles.active}`}>Home</a>
-                        <a href="#" className={styles.link}>All Posts</a>
-                        <a href="#" className={styles.link}>My Posts</a>
-                        <a href="#" className={styles.link}>EN <span>▼</span></a>
+                        <Link to="/" className={`${styles.link}`}>Home</Link>
+                        {/* <Link to="#" className={styles.link}>All Posts</Link> */}
+                        <Link to="/posts" className={`${styles.link}`}>All Posts</Link>
+                        <Link to="#" className={styles.link}>My Posts</Link>
+                        <Link to="#" className={styles.link}>EN <span>▼</span></Link>
                     </div>
     
     

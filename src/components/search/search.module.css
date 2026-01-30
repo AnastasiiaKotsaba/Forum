@@ -1,0 +1,46 @@
+.searchContainer {
+    position: relative;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.postModal {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.postItem {
+    margin-bottom: 16px;
+}
+
+.postTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.postImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.postContent {
+    margin: 8px 0 0;
+}

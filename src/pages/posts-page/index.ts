@@ -1,1 +1,1 @@
-export { OnePostPage } from "./one-post-page";
+export { PostPage } from "../posts-page/all-posts";

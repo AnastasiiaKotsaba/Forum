@@ -1,0 +1,64 @@
+.likesFilter {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    padding-top: 8px;
+    border-top: 1px dashed #ead7dc;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5f4b52;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.option {
+    position: relative;
+
+    padding: 8px 14px;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #6a535a;
+
+    background: #ffffff;
+    border: 1px solid #ead7dc;
+    border-radius: 14px;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: 
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.option:hover {
+    background: #f7eef1;
+}
+
+.option input {
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+.active {
+    background: linear-gradient(135deg, #f1d6dc, #e8c3cc);
+    border-color: #d9aab5;
+    color: #4a343a;
+    /* colorgb(156, 97, 113)43a; */
+
+
+    box-shadow: 0 4px 12px rgba(216, 164, 176, 0.35);
+}

@@ -1,3 +1,3 @@
 export { ICONS } from './icons';
 export { IMAGES } from './images';
-export type { IPost } from './types';
+export type { IPost, ITag } from './types';

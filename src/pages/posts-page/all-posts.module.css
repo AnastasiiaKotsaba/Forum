@@ -1,0 +1,110 @@
+
+/* SEARCH BAR */
+.searchBarDiv {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    padding: 15px 0 30px 0;
+    background: #ffffff;
+    border-radius: 50px;
+}
+
+.searchBarDiv input {
+    flex: 1; 
+    height: 42px;
+    background: #ECEAEA;
+    border: none;
+    border-radius: 999px;
+    padding: 0 18px;
+    font-size: 16px;
+}
+
+.searchBarDiv input::placeholder {
+    color: #9e9e9eb2;
+}
+
+.searchBarDiv input:focus {
+    outline: none;
+}
+.searchBarDiv button {
+    width: 42px;
+    aspect-ratio: 1 / 1;      
+    border-radius: 50%;       
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    background: #FBC4D7;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.searchBarDiv button:hover {
+    background: #f7a8c4;
+}
+
+
+/* no post text styles */
+
+.emptyState {
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color: #8a8a8a;
+    text-align: center;
+}
+
+/* filtration */
+
+.filterPost {
+    width: 100%;
+    /* max-width: 480px; */
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 26px 28px;
+
+    background: #fdfafb;
+    border-radius: 24px;
+    border: 1px solid #f0e4e7;
+
+
+    /* border: 1px solid #f9e4e7; */
+}
+
+.sectionLine {
+    width: 90%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffbad1 0%, #ffdfe9 50%, transparent 100%);
+    margin: 45px auto 25px auto;
+    border-radius: 50px;
+}
+
+.filtrationTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4f3a40;
+
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 600px) {
+    .filtersCard {
+        padding: 20px;
+        gap: 16px;
+    }
+}
+
+

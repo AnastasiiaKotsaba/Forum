@@ -1,16 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.layoutContainer{
-    display: flex;
-	flex-direction: column;
-    flex-basis: 1;
-	min-height: 100vh;
-	/* background-color: #faf0e6; */
-	padding: 20px 30px 10px 30px;
-	gap: 20px;
+* {
+    scrollbar-width: none;      
+    -ms-overflow-styles: none;   
+}
 
+*::-webkit-scrollbar {
+    display: none;          
 }

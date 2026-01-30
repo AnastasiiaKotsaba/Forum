@@ -3,7 +3,7 @@ import styless from "./layout.module.css"
 
 import { Footer } from "../Footer/footer" 
 import { Header } from "../Header/header" 
-import { Main } from "../Main/main2" 
+import { Main } from "../Main/main" 
 
 export function Layout() {
 	return (

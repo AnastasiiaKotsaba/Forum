@@ -2,65 +2,100 @@ import { useEffect, useState } from "react";
 import styles from './post-list.module.css'
 import { Post } from "../Post/post";
 import { IPost } from "../../shared";
+import { IPostListProps } from "./post-list.types";
+import { usePosts } from "../../hooks";
+import { BeatLoader } from "react-spinners";
 
-const tags = [
-    { id: 1, name: "Tigers" }, 
-    { id: 2, name: "Lotus" }, 
-    { id: 3, name: "Trip" },
-    { id: 4, name: "Nature" }, 
-    { id: 5, name: "Evening" }
-]
+ 
 
-const posts = [
-    {
-        id: 1,
-        title: "Post 1",
-        description: "This is the first post",
-        imageUrl:
-            'https://file.hstatic.net/200000017614/file/y_nghia_hoa_sen_307656ddb26948c79485303fd7d33daa.jpg',
-        tags: [tags[0], tags[1], tags[3]],
-        likes: 4
+export function PostList({ search, likesMinimumValue, selectedTags }: IPostListProps) {
+    const { posts, loading, error } = usePosts()
+    const [filteredPosts, setFilteredPosts] = useState<IPost[]>(posts);
 
-    },
-    {
-        id: 2,
-        title: "Post 2",
-        description: "This is the second post",
-        imageUrl:
-            "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-4.1.0",
-        tags: [tags[4]],
-        likes: 10,
+    console.log(posts)
 
+
+    useEffect(() => {
+        if (!posts || posts.length === 0) {
+            setFilteredPosts([])
+            return 
+        }
+
+        if (selectedTags === 'All') {
+            const searchedPosts = posts.filter((post) => {
+
+                return post.name
+                    .toLowerCase()
+                    .startsWith(search.toLowerCase())
+            })
+
+            setFilteredPosts(searchedPosts)
+        } else {
+            const newPosts = posts.filter((post) => {
+
+                return selectedTags.every((tagId) => {
+                    return post.tags
+                        .map((tag) => 
+                            tag.tag.id
+                        )
+                        .includes(tagId)
+                })
+            })
+
+            const searchedPosts = newPosts.filter((post) => {
+
+                return post.name
+                    .toLowerCase()
+                    .startsWith(search.toLowerCase())
+            })
+
+            setFilteredPosts(searchedPosts)
+        }
+    }, [posts, search, selectedTags, likesMinimumValue])
+
+
+    if (loading) {
+        return (
+            <div className={styles.loaderOverlay}>
+                <div className={styles.loaderWrapper}>
+                    <BeatLoader size={12} />
+                    <p className={styles.loaderText}>
+                        We're loading the page. Please, wait...
+                    </p>
+                </div>
+            </div>
+
+        )
     }
-]
 
-export function PostList() {
-    const [searchValue, setSearchValue] = useState<string>("")
-
+    if (error) {
+        return <p className={styles.errorText}>Error: {error}</p>
+    }
 
     return (
         <div className={styles.postListContainer}>
-            <div className={styles.filteredPosts}>
-                <div className={styles.searchBarBlock}>
-                    <input
-                        type="text"
-                        placeholder="Search posts..."
-                        className={styles.searchBarInput}
-                        onChange={(event) => {
-                            const inputValue = event.target.value
-                            setSearchValue(inputValue)
-                        }}
-                    />  
-                </div>
-            </div>
-
-            <div className={styles.postsBlock}>
-                <div className={styles.posts}>
-                    {posts.map((post) => {
-                        return <Post post={post} key={post.id}></Post>
-                    })}
-                </div>
-            </div>
+            {
+                loading ? (
+                    <p className={styles.loadingText}>Loading...</p>
+                ) : error ? (
+                    <p className={styles.errorText}>Error: {error}</p>
+                ) : (
+                    <div className={styles.postsBlock}>
+                        {/* умова ? вираз якщо true : вираз якщо false */}
+                        {filteredPosts.length === 0 ? (
+                            <div className={styles.emptyState}>
+                                Такого посту не було знайдено...Спробуйте ще раз
+                            </div>
+                        ) : (
+                            <div className={styles.posts}>
+                                {filteredPosts.map((post) => (
+                                    <Post post={post} key={post.id} />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )
+            }
 		</div>
     )
 	

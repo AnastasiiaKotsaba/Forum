@@ -15,6 +15,7 @@
     border-radius: 50px;
     height: 100%; 
     overflow: hidden;
+
 }
 
 .mainBgDiv h1 {
@@ -89,6 +90,7 @@
     margin: 45px auto 25px auto;
     border-radius: 50px;
 }
+
 
 /* блок з інформацією */
 .mainInfo {
@@ -165,3 +167,107 @@
     margin-top: 12px;
     line-height: 1.45;
 }
+
+/* анміація */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mainBgDiv h1,
+.searchBarDiv {
+    animation: fadeUp 0.9s ease forwards;
+}
+
+.searchBarDiv {
+    animation-delay: 0.2s;
+}
+
+
+/* стилі для блоку 2 */
+.howItWorks {
+    /* padding: 80px 20px 90px; */
+    text-align: center;
+    background: linear-gradient(
+        180deg,
+        #fff6f9 0%,
+        #ffffff 100%
+    );
+    padding: 80px 20px 90px;
+    border-radius: 28px;
+
+}
+
+.howItWorksTitle {
+    font-size: 44px;
+    font-weight: 700;
+    color: #2B2828;
+    margin-bottom: 12px;
+}
+
+.howItWorksSubtitle {
+    font-size: 18px;
+    color: #6b6b6b;
+    max-width: 620px;
+    margin: 0 auto 55px auto;
+    line-height: 1.5;
+}
+
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    /* gap: 18px; */
+
+}
+
+.stepCard {
+    position: relative;
+    padding: 34px 26px;
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 182, 204, 0.25);
+    backdrop-filter: blur(6px);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stepCard:hover {
+    transform: translateY(-2px);
+    /* box-shadow: 0 14px 34px rgba(212, 27, 92, 0.35); */
+
+    box-shadow: 0 14px 34px rgba(255, 176, 204, 0.35);
+}
+
+.stepNumber {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+
+    font-size: 42px;
+    font-weight: 700;
+    color: rgba(255, 182, 204, 0.35);
+}
+
+.stepCard h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2B2828;
+    margin-bottom: 12px;
+}
+
+.stepCard p {
+    font-size: 16px;
+    color: #4A4A4A;
+    line-height: 1.45;
+}
+

@@ -39,7 +39,39 @@ export function HomePage() {
             </div>
     
             <div className={styles.sectionLine}></div>
-            <Link to="/posts">Go to Posts</Link>
+
+            <div className={styles.howItWorks}>
+                <h2 className={styles.howItWorksTitle}>How it works</h2>
+                <p className={styles.howItWorksSubtitle}>
+                    Start your journey in just a few simple steps
+                </p>
+
+                <div className={styles.stepsGrid}>
+                    <div className={styles.stepCard}>
+                        <span className={styles.stepNumber}>01</span>
+                        <h3>Create profile</h3>
+                        <p>Tell about yourself and your interests to let others know you.</p>
+                    </div>
+
+                    <div className={styles.stepCard}>
+                        <span className={styles.stepNumber}>02</span>
+                        <h3>Find people</h3>
+                        <p>Search by interests, topics and tags to find like-minded people.</p>
+                    </div>
+
+                    <div className={styles.stepCard}>
+                        <span className={styles.stepNumber}>03</span>
+                        <h3>Join discussions</h3>
+                        <p>Comment, react and take part in conversations that matter to you.</p>
+                    </div>
+
+                    <div className={styles.stepCard}>
+                        <span className={styles.stepNumber}>04</span>
+                        <h3>Share & grow</h3>
+                        <p>Create posts, share ideas and grow together with the community.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

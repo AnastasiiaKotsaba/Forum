@@ -1,21 +1,14 @@
-
 .postListContainer {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 20px;
-    margin: 0 20px;
+    /* gap: 50px; */
+    /* padding: 0 10px; */
 }
 
-.postContainer {
+.posts {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    gap: 15px;
-
-    padding: 20px;
-    background-color: #FFFFFF;
-    border-radius: 15px;
+    gap: 50px; 
 }
 
 .imageContainer {
@@ -83,4 +76,109 @@
 .postStatus p {
     display: flex;
     gap: 5px;
+}
+
+/* SEARCH BAR */
+.searchBarDiv {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    padding: 15px 0 30px 0;
+    background: #ffffff;
+    border-radius: 50px;
+}
+
+.searchBarDiv input {
+    flex: 1; 
+    height: 42px;
+    background: #ECEAEA;
+    border: none;
+    border-radius: 999px;
+    padding: 0 18px;
+    font-size: 16px;
+}
+
+.searchBarDiv input::placeholder {
+    color: #9e9e9eb2;
+}
+
+.searchBarDiv input:focus {
+    outline: none;
+}
+.searchBarDiv button {
+    width: 42px;
+    aspect-ratio: 1 / 1;      
+    border-radius: 50%;       
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    background: #FBC4D7;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.searchBarDiv button:hover {
+    background: #f7a8c4;
+}
+
+
+/* no post text styles */
+
+.emptyState {
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color: #8a8a8a;
+    text-align: center;
+}
+
+/* loading */
+.loaderOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loaderWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 40px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.loaderText {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

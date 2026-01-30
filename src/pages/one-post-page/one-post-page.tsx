@@ -1,6 +1,6 @@
 import { IMAGES, ICONS } from '../../shared';
 import styles from './one-post-page.module.css';
-import { IPostProps } from "./one-post-page.types"
+import { IPostProps } from "../posts-page/posts-page.types"
 
 export function OnePostPage(props: IPostProps) {
     const { post } = props
@@ -12,12 +12,12 @@ export function OnePostPage(props: IPostProps) {
                 <p className={styles.authorName}>User123</p>
             </div>
 
-            <h1 className={styles.postTitle}>{post.title}</h1>
-            <h2 className={styles.postDescription}>{post.description}</h2>
+            <h1 className={styles.postTitle}>{post.name}</h1>
+            <h2 className={styles.postDescription}>{post.content}</h2>
 
 
             <div className={styles.imageContainer}>
-                <img src={post.imageUrl} className= {styles.postImage} alt="post-image1"/>
+                <img src={post.image} className= {styles.postImage} alt="post-image1"/>
             </div>
             
             <div className={styles.postStatus}>
