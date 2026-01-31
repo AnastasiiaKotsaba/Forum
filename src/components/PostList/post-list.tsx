@@ -17,48 +17,32 @@ export function PostList({ search, likesMinimumValue, selectedTags }: IPostListP
     useEffect(() => {
         if (!posts || posts.length === 0) {
             setFilteredPosts([])
-            return 
+            return
         }
 
-        if (selectedTags === 'All') {
-            const searchedPosts = posts.filter((post) => {
-                return post.name
-                    .toLowerCase()
-                    .startsWith(search.toLowerCase())
-            })
+        let newPosts = [...posts]
 
-            setFilteredPosts(searchedPosts)
-        } else {
-            const newPosts = posts.filter((post) => {
-                return selectedTags.every((tagId) => {
-                    return post.tags
-                        .map((tag) => 
-                            tag.tag.id
-                        )
-                        .includes(tagId)
-                })
-            })
+        newPosts = newPosts.filter((post) =>
+            post.name.toLowerCase().includes(search.toLowerCase())
+        )
 
-            const searchedPosts = newPosts.filter((post) => {
-                return post.name
-                    .toLowerCase()
-                    .startsWith(search.toLowerCase())
-            })
-
-            setFilteredPosts(searchedPosts)
+        // 🏷 теги
+        if (selectedTags !== 'All') {
+            newPosts = newPosts.filter(post =>
+                selectedTags.every(tagId =>
+                    post.tags.map(tag => tag.tag.id).includes(tagId)
+                )
+            )
         }
 
+        // ❤️ лайки
         if (likesMinimumValue === -1) {
-            const filteredPostZeroLikes = posts.filter((post) => {
-                return post.likes === 0
-            })
-            setFilteredPosts(filteredPostZeroLikes)
+            newPosts = newPosts.filter(post => post.likes === 0)
         } else {
-            const filteredPostMoreLikes = posts.filter((post) => {
-                return post.likes >= likesMinimumValue
-            })
-            setFilteredPosts(filteredPostMoreLikes)
+            newPosts = newPosts.filter(post => post.likes >= likesMinimumValue)
         }
+
+        setFilteredPosts(newPosts)
 
     }, [posts, search, selectedTags, likesMinimumValue])
 
