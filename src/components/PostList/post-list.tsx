@@ -10,10 +10,9 @@ import { BeatLoader } from "react-spinners";
 
 export function PostList({ search, likesMinimumValue, selectedTags }: IPostListProps) {
     const { posts, loading, error } = usePosts()
-    const [filteredPosts, setFilteredPosts] = useState<IPost[]>(posts);
+    const [filteredPosts, setFilteredPosts] = useState<IPost[]>([]);
 
-    console.log(posts)
-
+    console.log(filteredPosts)
 
     useEffect(() => {
         if (!posts || posts.length === 0) {
@@ -23,7 +22,6 @@ export function PostList({ search, likesMinimumValue, selectedTags }: IPostListP
 
         if (selectedTags === 'All') {
             const searchedPosts = posts.filter((post) => {
-
                 return post.name
                     .toLowerCase()
                     .startsWith(search.toLowerCase())
@@ -32,7 +30,6 @@ export function PostList({ search, likesMinimumValue, selectedTags }: IPostListP
             setFilteredPosts(searchedPosts)
         } else {
             const newPosts = posts.filter((post) => {
-
                 return selectedTags.every((tagId) => {
                     return post.tags
                         .map((tag) => 
@@ -43,7 +40,6 @@ export function PostList({ search, likesMinimumValue, selectedTags }: IPostListP
             })
 
             const searchedPosts = newPosts.filter((post) => {
-
                 return post.name
                     .toLowerCase()
                     .startsWith(search.toLowerCase())
@@ -51,6 +47,19 @@ export function PostList({ search, likesMinimumValue, selectedTags }: IPostListP
 
             setFilteredPosts(searchedPosts)
         }
+
+        if (likesMinimumValue === -1) {
+            const filteredPostZeroLikes = posts.filter((post) => {
+                return post.likes === 0
+            })
+            setFilteredPosts(filteredPostZeroLikes)
+        } else {
+            const filteredPostMoreLikes = posts.filter((post) => {
+                return post.likes >= likesMinimumValue
+            })
+            setFilteredPosts(filteredPostMoreLikes)
+        }
+
     }, [posts, search, selectedTags, likesMinimumValue])
 
 

@@ -10,38 +10,29 @@ export function SelectLikes(props: ISelectLikes) {
 
             <div className={styles.options}>
                 <label
-                    className={`${styles.option} ${
-                        likesMinimumValue === -1 ? styles.active : ""
-                    }`}
-                >
+                    className={`${styles.option} ${likesMinimumValue === -1 ? styles.active : ""}`}>
                     <input
                         type="radio"
                         name="likes"
                         checked={likesMinimumValue === -1}
                         onChange={() => setLikesMinimumValue(-1)}
                     />
-                    Less than 0
+                    0 likes
                 </label>
 
                 <label
-                    className={`${styles.option} ${
-                        likesMinimumValue === 0 ? styles.active : ""
-                    }`}
-                >
+                    className={`${styles.option} ${likesMinimumValue === 1 ? styles.active : ""}`}>
                     <input
                         type="radio"
                         name="likes"
-                        checked={likesMinimumValue === 0}
-                        onChange={() => setLikesMinimumValue(0)}
+                        checked={likesMinimumValue === 1}
+                        onChange={() => setLikesMinimumValue(1)}
                     />
                     More than 0
                 </label>
 
                 <label
-                    className={`${styles.option} ${
-                        likesMinimumValue === 50 ? styles.active : ""
-                    }`}
-                >
+                    className={`${styles.option} ${likesMinimumValue === 50 ? styles.active : ""}`}>
                     <input
                         type="radio"
                         name="likes"
@@ -52,10 +43,7 @@ export function SelectLikes(props: ISelectLikes) {
                 </label>
 
                 <label
-                    className={`${styles.option} ${
-                        likesMinimumValue === 100 ? styles.active : ""
-                    }`}
-                >
+                    className={`${styles.option} ${likesMinimumValue === 100 ? styles.active : ""}`}>
                     <input
                         type="radio"
                         name="likes"

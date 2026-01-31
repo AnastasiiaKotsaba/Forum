@@ -1,1 +1,1 @@
-export { PostPage } from "../posts-page/all-posts";
+export { PostPage } from "./all-posts";

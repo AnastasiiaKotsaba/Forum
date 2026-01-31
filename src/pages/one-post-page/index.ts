@@ -1,1 +1,1 @@
-export { OnePostPage } from "../one-post-page/one-post-page";
+export { OnePostPage } from "./one-post-page";

@@ -15,6 +15,8 @@ export function PostPage() {
 		setSelectedTags(tags);
 	}
 
+	// console.log('Likes: ', setLikesMinimumValue.arguments)
+
 	return (
 		<div className={styles.filteredPosts}>
             <div className={styles.searchBarDiv}>
@@ -39,11 +41,12 @@ export function PostPage() {
 					selectedTags={selectedTags}
 					setSelectedTags={setTags}
 				/>
-
+				
 				<SelectLikes
 					likesMinimumValue={likesMinimumValue}
 					setLikesMinimumValue={setLikesMinimumValue}
 				/>
+
 			</div>
 
 			<div className={styles.sectionLine}></div>

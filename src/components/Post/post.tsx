@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ICONS, IMAGES } from "../../shared";
 import styles from "./post.module.css";
 import { IPostProps } from './post.types'
@@ -43,6 +44,10 @@ export function Post(props: IPostProps) {
 			</div>
 
 			<div className={styles.postStatus}>
+				{/* <Link to={`/post/${post.id}`}>
+					<button>
+					</button>
+				</Link> */}
 				<p>
 					<ICONS.LikeButton width={18} height={16} />
 					<span>{post.likes}</span>
